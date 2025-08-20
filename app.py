@@ -4,9 +4,12 @@ from flask_restful import Api, Resource
 app = Flask(__name__)
 api = Api(app)
 
-# In-memory database (for testing purpose)
-users = {}
-user_id_counter = 1
+# In-memory database (with default users)
+users = {
+    1: {"id": 1, "name": "Alice", "email": "alice@example.com"},
+    2: {"id": 2, "name": "Bob", "email": "bob@example.com"}
+}
+user_id_counter = 3  # next ID after the last user
 
 
 class UserList(Resource):
